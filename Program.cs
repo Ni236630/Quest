@@ -47,7 +47,14 @@ namespace Quest
             Console.Write("> ");
             string userName = Console.ReadLine();
 
-            Adventurer theAdventurer = new Adventurer(userName);
+            Adventurer theAdventurer = new Adventurer(userName, new Robe());
+
+            // Adding new properties to the rob created in the line above 
+            theAdventurer.ColorfulRobe.Colors.Add("black");
+            theAdventurer.ColorfulRobe.Length = 72;
+            
+            // Calling the description of the Adventurer
+            theAdventurer.GetDescription();
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
