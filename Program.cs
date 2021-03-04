@@ -80,6 +80,22 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+
+            // This code prompts Adventurer if they would like to play again.
+            Console.Write($"Adventurer {theAdventurer.Name}, do you desire to play again? (Yes/No)");
+            string continueAnswer = Console.ReadLine().ToLower();
+
+            while (continueAnswer == "yes")
+            {
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
+                }
+                Console.Write("Do you still desire to play again? (Yes/No)");
+                continueAnswer = Console.ReadLine().ToLower();
+            }
+           
+
         }
     }
 }
