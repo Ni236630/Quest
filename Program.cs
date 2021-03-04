@@ -47,17 +47,18 @@ namespace Quest
             Console.Write("> ");
             string userName = Console.ReadLine();
 
-            Adventurer theAdventurer = new Adventurer(userName, new Robe());
+            Adventurer theAdventurer = new Adventurer(userName, new Robe(), new HeadCover());
 
             // Adding new properties to the rob created in the line above 
-            theAdventurer.ColorfulRobe.Colors = new List<string>();
+
             theAdventurer.ColorfulRobe.Length = 72;
             theAdventurer.ColorfulRobe.Colors.Add("blue");
             theAdventurer.ColorfulRobe.Colors.Add("black");
-            
+            theAdventurer.Hat.ShininessLevel = new Random().Next(11);
+
             // Calling the description of the Adventurer
             theAdventurer.GetDescription();
-        
+
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -104,7 +105,7 @@ namespace Quest
                 Console.Write("Do you still desire to play again? (Yes/No)");
                 continueAnswer = Console.ReadLine().ToLower();
             }
-           
+
 
         }
     }
