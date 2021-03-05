@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 // Every class in the program is defined within the "Quest" namespace
@@ -29,6 +30,24 @@ namespace Quest
     2) Paul
     3) George
     4) Ringo
+",
+                4, 20
+            );
+            Challenge favoritePowerRanger = new Challenge(
+                @"Who's your favorite PowerRanger?
+    1) Red
+    2) Pink
+    3) Blue
+    4) Yellow
+",
+                1, 15
+            );
+            Challenge BestAlienMovie = new Challenge(
+                @"What is the best Alien movie?
+    1) Alien
+    2) Aliens
+    3) Aliens 3 (Director's Cut)
+    4) We *All* know which one
 ",
                 4, 20
             );
@@ -68,11 +87,18 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                BestAlienMovie,
+                favoritePowerRanger
             };
 
+            // Randomly selecting Challenges
+            var shuffledChallenges = challenges.OrderBy(c => Guid.NewGuid()).Take(5).ToList();
+
+
+
             // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
+            foreach (Challenge challenge in shuffledChallenges)
             {
                 challenge.RunChallenge(theAdventurer);
             }
