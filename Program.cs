@@ -91,6 +91,9 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            Prize PrizesWon = new Prize(" 1 gold coin");
+            PrizesWon.ShowPrize(theAdventurer);
+
 
             // This code prompts Adventurer if they would like to play again.
             Console.Write($"Adventurer {theAdventurer.Name}, do you desire to play again? (Yes/No)");
@@ -102,6 +105,7 @@ namespace Quest
                 {
                     challenge.RunChallenge(theAdventurer);
                 }
+
                 Console.Write("Do you still desire to play again? (Yes/No)");
                 continueAnswer = Console.ReadLine().ToLower();
             }
