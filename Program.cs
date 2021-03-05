@@ -119,13 +119,15 @@ namespace Quest
             }
             Prize PrizesWon = new Prize(" 1 gold coin");
             PrizesWon.ShowPrize(theAdventurer);
+            Console.WriteLine($"Adventurer! You answered {theAdventurer.CorrectChallenges} correct challenges in your quest to be the best around!");
+
 
 
             // This code prompts Adventurer if they would like to play again.
             Console.Write($"Adventurer {theAdventurer.Name}, do you desire to play again? (Yes/No)");
             string continueAnswer = Console.ReadLine().ToLower();
 
-            while (continueAnswer == "yes")
+            while (continueAnswer == "yes" || continueAnswer == "y")
             {
                 foreach (Challenge challenge in challenges)
                 {
@@ -134,6 +136,12 @@ namespace Quest
 
                 Console.Write("Do you still desire to play again? (Yes/No)");
                 continueAnswer = Console.ReadLine().ToLower();
+                if (continueAnswer == "y" || continueAnswer == "yes")
+                {
+                    theAdventurer.Awesomeness += theAdventurer.CorrectChallenges * 10;
+
+                }
+
             }
 
 

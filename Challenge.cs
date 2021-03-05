@@ -11,6 +11,7 @@ namespace Quest
         private string _text;
         private int _correctAnswer;
         private int _awesomenessChange;
+        private int _correctChallenge;
 
 
         // A constructor for the Challenge
@@ -22,6 +23,7 @@ namespace Quest
             _text = text;
             _correctAnswer = correctAnswer;
             _awesomenessChange = awesomenessChange;
+            _correctChallenge = 1;
         }
 
         // This method will take an Adventurer object and make that Adventurer perform the challenge
@@ -40,6 +42,9 @@ namespace Quest
 
                 // Note how we access an Adventurer object's property
                 adventurer.Awesomeness += _awesomenessChange;
+                // Increase for correct challenges
+                adventurer.CorrectChallenges += _correctChallenge;
+
             }
             else
             {
